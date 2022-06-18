@@ -2,9 +2,11 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+// import GitHubIcon from '@mui/icons-material/GitHub';
+// import FacebookIcon from '@mui/icons-material/Facebook';
+// import TwitterIcon from '@mui/icons-material/Twitter';
+import { FaWeixin, FaWeibo } from 'react-icons/fa';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
@@ -15,6 +17,7 @@ import Footer from './Footer';
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
+
 
 const sections = [
   { title: 'Technology', url: '#' },
@@ -30,20 +33,20 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
+  title: '这里是我的首推文章标题',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    "啊 阿巴巴爸爸吧 厉害厉害 六六六。。。。。",
   image: 'https://source.unsplash.com/random',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
+  imageText: '图片描述',
+  linkText: '点击阅读全文',
 };
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: '个人作品展示',
+    date: '2022-01-02',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+      '这里是小河豚的个人作品展示',
     image: 'https://source.unsplash.com/random',
     imageLabel: 'Image Text',
   },
@@ -60,26 +63,12 @@ const featuredPosts = [
 const posts = [post1, post2, post3];
 
 const sidebar = {
-  title: 'About',
+  title: '关于我',
   description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-  archives: [
-    { title: 'March 2020', url: '#' },
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
-  ],
+        ['一本书的翻译者 | 游刃视频CEO','玩世不恭是表面 认真踏实是内核','5年海外游学经历 4年油管运营者','欢迎找我唠唠嗑'],
   social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'Twitter', icon: TwitterIcon },
-    { name: 'Facebook', icon: FacebookIcon },
+    { name: '个人微信', icon: FaWeixin },
+    { name: '新浪微博', icon: FaWeibo, link:"https://weibo.com/u/3200382633?tabtype=feed"},
   ],
 };
 
@@ -103,7 +92,6 @@ export default function Blog() {
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
-              archives={sidebar.archives}
               social={sidebar.social}
             />
           </Grid>

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
 function Sidebar(props) {
-  const { archives, description, social, title } = props;
+  const { description, social, title } = props;
 
   return (
     <Grid item xs={12} md={4}>
@@ -15,16 +15,11 @@ function Sidebar(props) {
         <Typography variant="h6" gutterBottom>
           {title}
         </Typography>
-        <Typography>{description}</Typography>
+        <Typography>{description.map((desc,i)=>{
+          return <p key={i}>{desc}</p>;
+        })}</Typography>
       </Paper>
-      <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-        Archives
-      </Typography>
-      {archives.map((archive) => (
-        <Link display="block" variant="body1" href={archive.url} key={archive.title}>
-          {archive.title}
-        </Link>
-      ))}
+      
 
       <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
         Social
@@ -33,12 +28,13 @@ function Sidebar(props) {
         <Link
           display="block"
           variant="body1"
-          href="#"
+          href={network.link}
           key={network.name}
           sx={{ mb: 0.5 }}
+          target="_blank"
         >
           <Stack direction="row" spacing={1} alignItems="center">
-            <network.icon />
+            <network.icon fontSize="20" />
             <span>{network.name}</span>
           </Stack>
         </Link>
@@ -48,13 +44,7 @@ function Sidebar(props) {
 }
 
 Sidebar.propTypes = {
-  archives: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.array.isRequired,
   social: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.elementType.isRequired,
